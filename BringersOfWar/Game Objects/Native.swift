@@ -10,37 +10,43 @@ import Foundation
 import SpriteKit
 
 class Native : SKSpriteNode{
-    
     var health:Int!
     var movementSpeed:CGFloat!
+    var gameScene:GameScene!
 
-    init() {
+    init(gameScene:GameScene) {
+        self.gameScene = gameScene
+        
         let texture = SKTexture(image: Sprites.NATIVE)
-        health = NativesData.HEALTH
-        movementSpeed = NativesData.MOVEMENT_SPEED
+        health = NativeData.HEALTH
+        movementSpeed = NativeData.MOVEMENT_SPEED
         
+        super.init(texture: texture, color: UIColor.clear, size: NativeData.SIZE)
         
-        
-        super.init(texture: texture, color: UIColor.clear, size: texture.size())
+        // Set up physics
+        self.physicsBody = SKPhysicsBody(circleOfRadius: NativeData.SIZE.width / 2)
+        self.physicsBody?.isDynamic = true
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = PhysicsCategory.NATIVE
+        self.physicsBody?.collisionBitMask = PhysicsCategory.BULLET
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.BULLET
     }
+    
     required init?(coder aDecoder: NSCoder) {
         // Decoding length here would be nice...
         super.init(coder: aDecoder)
     }
     
-    func Move() {
-        self.position.y = self.position.y + -self.movementSpeed * FIXED_DELTA_TIME
-    }
-    
-    func MoveTowardsColony() {
-        
+    func moveTowardsColony() {
         let movementAction = SKAction.run {
             self.position.y = self.position.y + -self.movementSpeed * FIXED_DELTA_TIME
             
             if (self.position.y < self.parent!.frame.minY) {
+                self.gameScene.damageColony()
                 self.removeFromParent()
             }
         }
+        
         run(
             SKAction.repeatForever(
                 SKAction.sequence([
