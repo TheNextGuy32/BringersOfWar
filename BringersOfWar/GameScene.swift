@@ -36,6 +36,30 @@ class GameScene: SKScene {
         towers = [];
         bullets = [];
         natives = [];
+        
+        StartEnemySpawning()
+    }
+    
+    func StartEnemySpawning() {
+        run(
+            SKAction.repeatForever(
+                SKAction.sequence([
+                    SKAction.run(addEnemy),
+                    SKAction.wait(forDuration: 2.5)
+                ])
+            )
+        )
+    }
+
+    
+    func addEnemy() {
+        let native = Native()
+        
+        let spawnPointX = random(min: frame.minX, max: frame.maxX)
+        
+        native.position = CGPoint(x: spawnPointX, y: frame.maxY)
+        addChild(native)
+        native.MoveTowardsColony()
     }
     
     
@@ -78,8 +102,6 @@ class GameScene: SKScene {
                 
                 if(distance < CGFloat(tower.range)) {
                     let bullet = Bullet(myDamage: tower.damage, mySpeed: 128, imageNamed: "Bullet.png")
-                    
-                    bullet.run(<#T##action: SKAction##SKAction#>)
                 }
             }
         }

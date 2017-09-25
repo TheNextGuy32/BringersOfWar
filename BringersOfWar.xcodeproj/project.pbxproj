@@ -18,10 +18,12 @@
 		01E9CF401F756DDA000A5A2D /* Native.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF3F1F756DDA000A5A2D /* Native.swift */; };
 		01E9CF421F7581FF000A5A2D /* Tower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF411F7581FF000A5A2D /* Tower.swift */; };
 		01E9CF441F758299000A5A2D /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF431F758299000A5A2D /* Bullet.swift */; };
-		3F1811B01F7887E200BDFA2F /* Mars CH16.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1811AF1F7887E200BDFA2F /* Mars CH16.png */; };
-		3F1811B21F7890E700BDFA2F /* Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1811B11F7890E700BDFA2F /* Tower.png */; };
-		3F1811B41F78A50F00BDFA2F /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1811B31F78A50F00BDFA2F /* Bullet.png */; };
-		3F1811B61F78A68F00BDFA2F /* PhysicsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1811B51F78A68F00BDFA2F /* PhysicsInfo.swift */; };
+		3FED45741F7981600037C005 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FED45721F797FCB0037C005 /* Bullet.png */; };
+		3FED45751F7981600037C005 /* Mars CH16.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FED45711F797FCB0037C005 /* Mars CH16.png */; };
+		3FED45761F7981600037C005 /* Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FED45731F797FCB0037C005 /* Tower.png */; };
+		3FED45781F79822A0037C005 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED45771F79822A0037C005 /* Constants.swift */; };
+		3FED457A1F7982B90037C005 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FED45791F7982B90037C005 /* player.png */; };
+		3FED457C1F798ACE0037C005 /* Utillities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED457B1F798ACE0037C005 /* Utillities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +40,12 @@
 		01E9CF3F1F756DDA000A5A2D /* Native.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Native.swift; sourceTree = "<group>"; };
 		01E9CF411F7581FF000A5A2D /* Tower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tower.swift; sourceTree = "<group>"; };
 		01E9CF431F758299000A5A2D /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
-		3F1811AF1F7887E200BDFA2F /* Mars CH16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mars CH16.png"; path = "../../../../Downloads/Mars CH16.png"; sourceTree = "<group>"; };
-		3F1811B11F7890E700BDFA2F /* Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tower.png; path = ../../../Tower.png; sourceTree = "<group>"; };
-		3F1811B31F78A50F00BDFA2F /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = ../../../Bullet.png; sourceTree = "<group>"; };
-		3F1811B51F78A68F00BDFA2F /* PhysicsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsInfo.swift; sourceTree = "<group>"; };
+		3FED45711F797FCB0037C005 /* Mars CH16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mars CH16.png"; sourceTree = "<group>"; };
+		3FED45721F797FCB0037C005 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
+		3FED45731F797FCB0037C005 /* Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tower.png; sourceTree = "<group>"; };
+		3FED45771F79822A0037C005 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3FED45791F7982B90037C005 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = ../../../../Downloads/SpriteKitSimpleGameResources/sprites.atlas/player.png; sourceTree = "<group>"; };
+		3FED457B1F798ACE0037C005 /* Utillities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +86,13 @@
 				01E9CF431F758299000A5A2D /* Bullet.swift */,
 				01E9CF2B1F7567D4000A5A2D /* Actions.sks */,
 				01E9CF2D1F7567D4000A5A2D /* GameScene.swift */,
-				3F1811B51F78A68F00BDFA2F /* PhysicsInfo.swift */,
 				01E9CF2F1F7567D4000A5A2D /* GameViewController.swift */,
 				01E9CF311F7567D4000A5A2D /* Main.storyboard */,
 				01E9CF341F7567D4000A5A2D /* Assets.xcassets */,
 				01E9CF361F7567D4000A5A2D /* LaunchScreen.storyboard */,
 				01E9CF391F7567D4000A5A2D /* Info.plist */,
+				3FED45771F79822A0037C005 /* Constants.swift */,
+				3FED457B1F798ACE0037C005 /* Utillities.swift */,
 			);
 			path = BringersOfWar;
 			sourceTree = "<group>";
@@ -95,9 +100,10 @@
 		3F1811AD1F7887A000BDFA2F /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				3F1811B31F78A50F00BDFA2F /* Bullet.png */,
-				3F1811B11F7890E700BDFA2F /* Tower.png */,
-				3F1811AF1F7887E200BDFA2F /* Mars CH16.png */,
+				3FED45791F7982B90037C005 /* player.png */,
+				3FED45721F797FCB0037C005 /* Bullet.png */,
+				3FED45711F797FCB0037C005 /* Mars CH16.png */,
+				3FED45731F797FCB0037C005 /* Tower.png */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
@@ -162,12 +168,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E9CF331F7567D4000A5A2D /* Main.storyboard in Resources */,
+				3FED45751F7981600037C005 /* Mars CH16.png in Resources */,
+				3FED457A1F7982B90037C005 /* player.png in Resources */,
+				3FED45741F7981600037C005 /* Bullet.png in Resources */,
 				01E9CF2A1F7567D4000A5A2D /* GameScene.sks in Resources */,
 				01E9CF351F7567D4000A5A2D /* Assets.xcassets in Resources */,
-				3F1811B01F7887E200BDFA2F /* Mars CH16.png in Resources */,
+				3FED45761F7981600037C005 /* Tower.png in Resources */,
 				01E9CF381F7567D4000A5A2D /* LaunchScreen.storyboard in Resources */,
-				3F1811B41F78A50F00BDFA2F /* Bullet.png in Resources */,
-				3F1811B21F7890E700BDFA2F /* Tower.png in Resources */,
 				01E9CF2C1F7567D4000A5A2D /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,9 +188,10 @@
 			files = (
 				01E9CF2E1F7567D4000A5A2D /* GameScene.swift in Sources */,
 				01E9CF301F7567D4000A5A2D /* GameViewController.swift in Sources */,
-				3F1811B61F78A68F00BDFA2F /* PhysicsInfo.swift in Sources */,
 				01E9CF421F7581FF000A5A2D /* Tower.swift in Sources */,
+				3FED457C1F798ACE0037C005 /* Utillities.swift in Sources */,
 				01E9CF401F756DDA000A5A2D /* Native.swift in Sources */,
+				3FED45781F79822A0037C005 /* Constants.swift in Sources */,
 				01E9CF281F7567D4000A5A2D /* AppDelegate.swift in Sources */,
 				01E9CF441F758299000A5A2D /* Bullet.swift in Sources */,
 			);
