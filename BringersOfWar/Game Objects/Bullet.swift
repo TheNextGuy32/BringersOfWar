@@ -15,10 +15,13 @@ class Bullet : SKSpriteNode{
     var tower:Tower!
     
     init(tower:Tower) {
+        // Store reference to associated tower
         self.tower = tower
         
+        // Get texture
         let texture = SKTexture(image: Sprites.BULLET)
         
+        // Setup data
         damage = BulletData.DAMAGE
         movementSpeed = BulletData.MOVEMENT_SPEED
         
@@ -38,10 +41,12 @@ class Bullet : SKSpriteNode{
         super.init(coder: aDecoder)
     }
     
+    // Move bullet towards target
     public func moveTowardsTarget(target:CGPoint) {
         let vectorBetween:CGVector = CGVector(dx: target.x - self.position.x, dy: target.y - self.position.y)
         let length = sqrt(vectorBetween.dx * vectorBetween.dx + vectorBetween.dy * vectorBetween.dy)
 
+        // Movement action
         run(SKAction.sequence([
                 SKAction.move(by: vectorBetween, duration: TimeInterval(Double(length / movementSpeed))),
                 SKAction.removeFromParent()

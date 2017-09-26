@@ -15,9 +15,13 @@ class Native : SKSpriteNode{
     var gameScene:GameScene!
 
     init(gameScene:GameScene) {
+        // Store reference to game scene
         self.gameScene = gameScene
         
+        // Get texture
         let texture = SKTexture(image: Sprites.NATIVE)
+        
+        // Setup data
         health = NativeData.HEALTH
         movementSpeed = NativeData.MOVEMENT_SPEED
         
@@ -37,21 +41,25 @@ class Native : SKSpriteNode{
         super.init(coder: aDecoder)
     }
     
+    // Movement for the aliens
     func moveTowardsColony() {
+        // Move towards the colony while checking if we have reached it
         let movementAction = SKAction.run {
             self.position.y = self.position.y + -self.movementSpeed * FIXED_DELTA_TIME
             
             if (self.position.y < self.parent!.frame.minY) {
+                // Damage the colony if we reach it.
                 self.gameScene.damageColony()
                 self.removeFromParent()
             }
         }
         
+        // Run action
         run(
             SKAction.repeatForever(
                 SKAction.sequence([
                     movementAction,
-                    SKAction.wait(forDuration: Double(FIXED_DELTA_TIME))
+                    SKAction.wait(forDuration: Double(FIXED_DELTA_TIME))    // Probably not the best way to delay to the next frame
                 ])
             )
         )

@@ -10,12 +10,15 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    // Game Vars
     var lives:Int!
     var towersLeft:Int!
     var gameTime:Float!
     
+    // UI mode
     var isPlacingTower:Bool = false;
     
+    // Game objects
     var towers:[Tower]!
     var bullets:[Bullet]!
     var natives:[Native]!
@@ -38,6 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         startEnemySpawning()
         
+        // Setup physics in scene
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
     }
@@ -53,7 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         towerButton.zPosition = 100
         addChild(towerButton)
         
-        // Labels
+        // Get labels from .sks
         livesLabel = childNode(withName: "LivesLabel") as! SKLabelNode
         towersLeftLabel = childNode(withName: "TowersLeftLabel") as! SKLabelNode
         
@@ -61,6 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         towersLeftLabel.text = "Towers Left: " + String(towersLeft)
     }
     
+    // Handle enemy spawning
     func startEnemySpawning() {
         run(
             SKAction.repeatForever(
@@ -72,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         )
     }
 
-    
+    // Add enemy to field
     func addEnemy() {
         let native = Native(gameScene: self)
         
@@ -83,9 +88,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         native.moveTowardsColony()
     }
     
+    // Damage the player
     func damageColony() {
         lives = lives - 1
         
+        // Set label. TODO: Handle this with didSet
         livesLabel.text = "Lives Left: " + String(lives)
         
         if(lives <= 0) {
@@ -93,6 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    // Restart level
     func restartLevel() {
         run(SKAction.sequence([
             SKAction.run() {
@@ -131,18 +139,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
+        // Check if we are in placing mode
         if(isPlacingTower && towersLeft > 0) {
             let tower = Tower(gameScene: self)
             
+            // Place tower
             tower.position = touchPosition
             addChild(tower)
-            
             towers.append(tower)
             
             towersLeft = towersLeft - 1
             
+            // TODO: Handle this in didSet
             towersLeftLabel.text = "Towers Left: " + String(towersLeft)
         } else {
+            // Fire the tower bullets
             for tower:Tower in towers {
                 tower.fireBullet(target: touchPosition)
             }
@@ -155,10 +166,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
     }
     
+    // Handle collisions
     func didBegin(_ contact: SKPhysicsContact) {
         let spriteNodeA = contact.bodyA.node as? SKSpriteNode
         let spriteNodeB = contact.bodyB.node as? SKSpriteNode
         
+        // Assume that we want to delete these
         if(spriteNodeA != nil && spriteNodeB != nil) {
             spriteNodeA?.removeFromParent()
             spriteNodeB?.removeFromParent()
