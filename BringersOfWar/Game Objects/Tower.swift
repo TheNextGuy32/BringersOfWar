@@ -31,6 +31,7 @@ class Tower : SKSpriteNode{
         
         // Initiate Base
         super.init(texture: texture, color: UIColor.clear, size: TowerData.SIZE)
+        self.name = Names.TOWER_NAME
         
         // Add range circle
         let rangeCircle = SKShapeNode(circleOfRadius: CGFloat(range))
