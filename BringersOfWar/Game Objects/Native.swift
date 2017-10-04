@@ -36,6 +36,12 @@ class Native : SKSpriteNode{
         self.physicsBody?.categoryBitMask = PhysicsCategory.NATIVE
         self.physicsBody?.collisionBitMask = PhysicsCategory.BULLET | PhysicsCategory.BASE
         self.physicsBody?.contactTestBitMask = PhysicsCategory.BULLET | PhysicsCategory.BASE
+        
+        // Keep native on screen
+        self.constraints = [
+            SKConstraint.positionX(
+                SKRange(lowerLimit: gameScene.frame.minX, upperLimit: gameScene.frame.maxX)
+            )]
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,13 +59,18 @@ class Native : SKSpriteNode{
     }
 }
 
+
+// Contains SKActions for the movement of the native
 struct NativeMovement {
+    // Move straight down
     static let MOVE_STRAIGHT_DOWN = SKAction.customAction(withDuration: 1) {
         node, elapsedTime in
         if let native = node as? Native {
             native.position.y = native.position.y + -native.movementSpeed * FIXED_DELTA_TIME
         }
     }
+    
+    // Move is zig zap pattern
     static let MOVE_ZIG_ZAG = SKAction.customAction(withDuration: 2) {
         node, elapsedTime in
         if let native = node as? Native {
@@ -71,6 +82,8 @@ struct NativeMovement {
             native.position.y = native.position.y + movementDelta.dy
         }
     }
+    
+    // Move in charging pattern. (Stop then sprint then stop)
     static let MOVE_CHARGE = SKAction.sequence([
         SKAction.customAction(withDuration: 0.5) {
             node, elapsedTime in
@@ -86,6 +99,7 @@ struct NativeMovement {
         }
         ])
     
+    // Move from starting position to a lane, then run down it.
     static func CreateActionFindRandomLane(native:Native) -> SKAction {
         let gameFrame = native.gameScene.frame
         let lane = random(min: gameFrame.minX, max: gameFrame.maxX)
@@ -98,6 +112,7 @@ struct NativeMovement {
         return SKAction.sequence([findLane, travelDownLane])
     }
     
+    // Get random movement action
     static func GetRandomMovementPattern(native:Native) -> SKAction {
         switch random(min: 0, max: 4) {
         case 0:
@@ -105,7 +120,7 @@ struct NativeMovement {
         case 1:
             return MOVE_ZIG_ZAG
         case 2:
-            return MOVE_STRAIGHT_DOWN
+            return MOVE_CHARGE
         case 3:
             return CreateActionFindRandomLane(native:native)
         default:
