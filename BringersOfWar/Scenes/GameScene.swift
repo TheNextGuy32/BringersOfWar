@@ -10,13 +10,30 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var levelNum:Int
+    var levelScore:Int = 0
+    var totalScore:Int
+    
+    let sceneManager:GameViewController
+    
+    var playableRect = CGRect.zero
+    
     // Game Vars
-    var lives:Int!
-    var towersLeft:Int!
-    var gameTime:Float!
+    var lives:Int {
+        didSet {
+            livesLabel.text = "Lives left: \(lives)"
+        }
+    }
+    var towersLeft:Int {
+        didSet {
+            towerLabel.text = "Towers left: \(towersLeft)"
+        }
+    }
     
     // UI mode
     var isPlacingTower:Bool = false;
+    var towerButton:SKShapeNode!
     
     // Game objects
     var towers:[Tower]!
@@ -24,21 +41,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var natives:[Native]!
     
     // User Interface
-    var towerButton:SKShapeNode!
-    var livesLabel:SKLabelNode!
-    var towersLeftLabel:SKLabelNode!
+    var livesLabel = SKLabelNode()
+    var towerLabel = SKLabelNode()
+    
+    init(size: CGSize, scaleMode: SKSceneScaleMode, levelNum:Int, totalScore:Int, sceneManager:GameViewController) {
+        
+        self.levelNum = levelNum
+        self.totalScore = totalScore
+        self.sceneManager = sceneManager
+        
+        self.lives = 3
+        self.towersLeft = 6
+        
+        towers = []
+        bullets = []
+        natives = []
+        
+        super.init(size: size)
+        
+        self.scaleMode = scaleMode
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("It done gone fucked up Sarge!")
+    }
     
     override func didMove(to view: SKView) {
-        lives = 3;
-        towersLeft = 6;
-        gameTime = 0;
-        
-        towers = [];
-        bullets = [];
-        natives = [];
         
         setupUserInterface()
-        
         startEnemySpawning()
         
         // Setup physics in scene
@@ -52,17 +81,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         towerButton = SKShapeNode(rectOf: CGSize(width: 96, height: 96))
         towerButton.name = "Tower Button"
         towerButton.fillTexture = SKTexture(imageNamed: "Tower.png")
-        towerButton.fillColor = SKColor.gray
+        towerButton.fillColor = SKColor.white
         towerButton.position = CGPoint(x: self.frame.maxX - 96, y: self.frame.minY + 96)
         towerButton.zPosition = 100
         addChild(towerButton)
         
-        // Get labels from .sks
-        livesLabel = childNode(withName: "LivesLabel") as! SKLabelNode
-        towersLeftLabel = childNode(withName: "TowersLeftLabel") as! SKLabelNode
+        livesLabel.text = "Lives Left: \(lives)"
+        livesLabel.fontColor  = SKColor.red
+        livesLabel.verticalAlignmentMode = .bottom
+        livesLabel.horizontalAlignmentMode = .left
+        livesLabel.position = CGPoint(x: self.frame.minX + 150, y: self.frame.minY + 40)
+        livesLabel.zPosition = 100
+        addChild(livesLabel)
         
-        livesLabel.text = "Lives Left: " + String(lives)
-        towersLeftLabel.text = "Towers Left: " + String(towersLeft)
+        towerLabel.text = "Towers left: \(towersLeft)"
+        towerLabel.fontColor = SKColor.red
+        towerLabel.verticalAlignmentMode = .bottom
+        towerLabel.horizontalAlignmentMode = .left
+        towerLabel.position = CGPoint(x: self.frame.minX + 150, y: self.frame.minY + 96)
+        towerLabel.zPosition = 100
+        addChild(towerLabel)
     }
     
     // Handle enemy spawning
@@ -92,9 +130,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func damageColony() {
         lives = lives - 1
         
-        // Set label. TODO: Handle this with didSet
-        livesLabel.text = "Lives Left: " + String(lives)
-        
         if(lives <= 0) {
             restartLevel()
         }
@@ -111,12 +146,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             ]))
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -150,20 +179,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             towersLeft = towersLeft - 1
             
-            // TODO: Handle this in didSet
-            towersLeftLabel.text = "Towers Left: " + String(towersLeft)
         } else {
             // Fire the tower bullets
             for tower:Tower in towers {
                 tower.fireBullet(target: touchPosition)
             }
         }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
     }
     
     // Handle collisions
