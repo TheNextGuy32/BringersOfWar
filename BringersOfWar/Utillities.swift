@@ -16,3 +16,7 @@ func random() -> CGFloat {
 func random(min: CGFloat, max: CGFloat) -> CGFloat {
     return random() * (max - min) + min
 }
+
+func random(min: Int, max: Int) -> Int {
+    return Int(random() * CGFloat(max - min)) + min
+}

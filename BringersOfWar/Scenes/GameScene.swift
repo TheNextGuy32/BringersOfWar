@@ -73,6 +73,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Setup physics in scene
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
+        
+        // Place colony collision
+        let colonyColliderRect = CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: 192))
+        let colonyNode = SKShapeNode(rect: colonyColliderRect)
+        colonyNode.name = Names.BASE_NAME
+        colonyNode.strokeColor = .green
+        colonyNode.physicsBody = SKPhysicsBody(edgeLoopFrom: colonyColliderRect)
+        colonyNode.physicsBody?.isDynamic = false
+        colonyNode.physicsBody?.affectedByGravity = false
+        colonyNode.physicsBody?.categoryBitMask = PhysicsCategory.BASE
+        colonyNode.physicsBody?.collisionBitMask = PhysicsCategory.NATIVE
+        colonyNode.physicsBody?.contactTestBitMask = PhysicsCategory.NATIVE
+        addChild(colonyNode)
     }
     
     // Finds the game objects in the GameScene.sks
@@ -187,15 +200,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+<<<<<<< HEAD:BringersOfWar/Scenes/GameScene.swift
+=======
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+    }
+    
+    
+    // Mark: - Collision -
+>>>>>>> aa1e2b39ba6ec0f973f942dfb4699067255fda22:BringersOfWar/GameScene.swift
     // Handle collisions
     func didBegin(_ contact: SKPhysicsContact) {
-        let spriteNodeA = contact.bodyA.node as? SKSpriteNode
-        let spriteNodeB = contact.bodyB.node as? SKSpriteNode
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
         
-        // Assume that we want to delete these
-        if(spriteNodeA != nil && spriteNodeB != nil) {
-            spriteNodeA?.removeFromParent()
-            spriteNodeB?.removeFromParent()
+        print("\(nodeA!.name!) collided with \(nodeB!.name!)")
+        
+        
+        // Check if nodeA is a Native
+        if nodeA!.name == Names.NATIVE_NAME {
+            handleNativeCollision(nativeNode: nodeA!, otherNode: nodeB!)
+        } else if nodeB!.name == Names.NATIVE_NAME {
+            handleNativeCollision(nativeNode: nodeB!, otherNode: nodeA!)
+        } else {
+            print("Unhandled Collision")
+        }
+    }
+    
+    // Handle collisions with natives
+    private func handleNativeCollision(nativeNode: SKNode, otherNode: SKNode) {
+        switch(otherNode.name!) {
+        case Names.BULLET_NAME:
+            // Bullet Collision. Remove both.
+            nativeNode.removeFromParent()
+            otherNode.removeFromParent()
+            break
+        case Names.BASE_NAME:
+            // Collision with base. Remove native. damage base
+            nativeNode.removeFromParent()
+            self.damageColony()
+            break;
+        default:
+            print("Unhandled Collision")
+            break
         }
     }
 }

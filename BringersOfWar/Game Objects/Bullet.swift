@@ -26,6 +26,7 @@ class Bullet : SKSpriteNode{
         movementSpeed = BulletData.MOVEMENT_SPEED
         
         super.init(texture: texture, color: UIColor.clear, size: BulletData.SIZE)
+        self.name = Names.BULLET_NAME
         
         // Set up physics
         self.physicsBody = SKPhysicsBody(circleOfRadius: BulletData.SIZE.width / 2)
