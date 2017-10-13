@@ -31,6 +31,7 @@
 		3F408E131F79BAB4005B15DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F408E101F79BAB4005B15DF /* Constants.swift */; };
 		3F5ED57A1F90671700504577 /* Native.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F5ED5791F90664500504577 /* Native.atlas */; };
 		3F5ED57E1F90692B00504577 /* chitiniac.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5ED57D1F90692A00504577 /* chitiniac.png */; };
+		3F5ED5811F906A0A00504577 /* TowerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5ED5801F906A0A00504577 /* TowerManager.swift */; };
 		3FED457C1F798ACE0037C005 /* Utillities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED457B1F798ACE0037C005 /* Utillities.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		3F408E101F79BAB4005B15DF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F5ED5791F90664500504577 /* Native.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Native.atlas; sourceTree = "<group>"; };
 		3F5ED57D1F90692A00504577 /* chitiniac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chitiniac.png; sourceTree = "<group>"; };
+		3F5ED5801F906A0A00504577 /* TowerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerManager.swift; sourceTree = "<group>"; };
 		3FED457B1F798ACE0037C005 /* Utillities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 		01E9CF261F7567D4000A5A2D /* BringersOfWar */ = {
 			isa = PBXGroup;
 			children = (
+				3F5ED57F1F9069EF00504577 /* Managers */,
 				019708371F84DAD3008B5FD4 /* Sprites */,
 				0197082E1F84CA7F008B5FD4 /* Model */,
 				0197082A1F84C8DD008B5FD4 /* VC */,
@@ -164,6 +167,14 @@
 				3F408E0E1F79BAB4005B15DF /* Native.swift */,
 			);
 			path = "Game Objects";
+			sourceTree = "<group>";
+		};
+		3F5ED57F1F9069EF00504577 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3F5ED5801F906A0A00504577 /* TowerManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 				01E9CF281F7567D4000A5A2D /* AppDelegate.swift in Sources */,
 				019708301F84CA8C008B5FD4 /* LevelResults.swift in Sources */,
 				019708321F84CBC4008B5FD4 /* GameOverScene.swift in Sources */,
+				3F5ED5811F906A0A00504577 /* TowerManager.swift in Sources */,
 				019708291F84C868008B5FD4 /* MenuScreen.swift in Sources */,
 				019708351F84CC51008B5FD4 /* FinishLevelScene.swift in Sources */,
 				3F408E121F79BAB4005B15DF /* GameScene.swift in Sources */,
