@@ -200,8 +200,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-<<<<<<< HEAD:BringersOfWar/Scenes/GameScene.swift
-=======
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
@@ -210,8 +208,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     // Mark: - Collision -
->>>>>>> aa1e2b39ba6ec0f973f942dfb4699067255fda22:BringersOfWar/GameScene.swift
-    // Handle collisions
     func didBegin(_ contact: SKPhysicsContact) {
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node

@@ -26,19 +26,11 @@
 		01E9CF381F7567D4000A5A2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E9CF361F7567D4000A5A2D /* LaunchScreen.storyboard */; };
 		01E9CF421F7581FF000A5A2D /* Tower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF411F7581FF000A5A2D /* Tower.swift */; };
 		01E9CF441F758299000A5A2D /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF431F758299000A5A2D /* Bullet.swift */; };
-<<<<<<< HEAD
-=======
-		3F27AFF11F859F21002F8E34 /* chitiniac.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F27AFF01F859EFD002F8E34 /* chitiniac.png */; };
-		3F408E081F79BA16005B15DF /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F408E041F79BA16005B15DF /* Bullet.png */; };
-		3F408E091F79BA16005B15DF /* Mars CH16.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F408E051F79BA16005B15DF /* Mars CH16.png */; };
-		3F408E0A1F79BA16005B15DF /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F408E061F79BA16005B15DF /* player.png */; };
-		3F408E0B1F79BA16005B15DF /* Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F408E071F79BA16005B15DF /* Tower.png */; };
-		3F408E0D1F79BA83005B15DF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3F408E0C1F79BA83005B15DF /* GameScene.sks */; };
->>>>>>> aa1e2b39ba6ec0f973f942dfb4699067255fda22
 		3F408E111F79BAB4005B15DF /* Native.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F408E0E1F79BAB4005B15DF /* Native.swift */; };
 		3F408E121F79BAB4005B15DF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F408E0F1F79BAB4005B15DF /* GameScene.swift */; };
 		3F408E131F79BAB4005B15DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F408E101F79BAB4005B15DF /* Constants.swift */; };
-		3FC367411F859F900074D400 /* Native.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FC367401F859F8B0074D400 /* Native.atlas */; };
+		3F5ED57A1F90671700504577 /* Native.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F5ED5791F90664500504577 /* Native.atlas */; };
+		3F5ED57E1F90692B00504577 /* chitiniac.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5ED57D1F90692A00504577 /* chitiniac.png */; };
 		3FED457C1F798ACE0037C005 /* Utillities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED457B1F798ACE0037C005 /* Utillities.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,19 +57,11 @@
 		01E9CF391F7567D4000A5A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E9CF411F7581FF000A5A2D /* Tower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tower.swift; sourceTree = "<group>"; };
 		01E9CF431F758299000A5A2D /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		3F27AFF01F859EFD002F8E34 /* chitiniac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chitiniac.png; sourceTree = "<group>"; };
-		3F408E041F79BA16005B15DF /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
-		3F408E051F79BA16005B15DF /* Mars CH16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mars CH16.png"; sourceTree = "<group>"; };
-		3F408E061F79BA16005B15DF /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		3F408E071F79BA16005B15DF /* Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tower.png; sourceTree = "<group>"; };
-		3F408E0C1F79BA83005B15DF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = ../../../Desktop/BringersOfWar/BringersOfWar/GameScene.sks; sourceTree = "<group>"; };
->>>>>>> aa1e2b39ba6ec0f973f942dfb4699067255fda22
 		3F408E0E1F79BAB4005B15DF /* Native.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Native.swift; sourceTree = "<group>"; };
 		3F408E0F1F79BAB4005B15DF /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3F408E101F79BAB4005B15DF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3FC367401F859F8B0074D400 /* Native.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Native.atlas; sourceTree = "<group>"; };
+		3F5ED5791F90664500504577 /* Native.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Native.atlas; sourceTree = "<group>"; };
+		3F5ED57D1F90692A00504577 /* chitiniac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chitiniac.png; sourceTree = "<group>"; };
 		3FED457B1F798ACE0037C005 /* Utillities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +108,8 @@
 		019708371F84DAD3008B5FD4 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				3F5ED57D1F90692A00504577 /* chitiniac.png */,
+				3F5ED5791F90664500504577 /* Native.atlas */,
 				019708381F84DAD3008B5FD4 /* Bullet.png */,
 				019708391F84DAD3008B5FD4 /* Mars CH16.png */,
 				0197083A1F84DAD3008B5FD4 /* mars.jpg */,
@@ -170,23 +156,6 @@
 			path = BringersOfWar;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
-		3F408E031F79BA16005B15DF /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-				3F27AFF01F859EFD002F8E34 /* chitiniac.png */,
-				3FC367401F859F8B0074D400 /* Native.atlas */,
-				3F408E041F79BA16005B15DF /* Bullet.png */,
-				3F408E051F79BA16005B15DF /* Mars CH16.png */,
-				3F408E061F79BA16005B15DF /* player.png */,
-				3F408E071F79BA16005B15DF /* Tower.png */,
-			);
-			name = Sprites;
-			path = ../../../Desktop/BringersOfWar/BringersOfWar/Sprites;
-			sourceTree = "<group>";
-		};
->>>>>>> aa1e2b39ba6ec0f973f942dfb4699067255fda22
 		3F408E141F79BEDF005B15DF /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,17 +229,13 @@
 				01E9CF331F7567D4000A5A2D /* Main.storyboard in Resources */,
 				019708401F84DAD3008B5FD4 /* player.png in Resources */,
 				01E9CF351F7567D4000A5A2D /* Assets.xcassets in Resources */,
-<<<<<<< HEAD
+				3F5ED57A1F90671700504577 /* Native.atlas in Resources */,
 				0197083E1F84DAD3008B5FD4 /* Mars CH16.png in Resources */,
-=======
-				3FC367411F859F900074D400 /* Native.atlas in Resources */,
-				3F408E0B1F79BA16005B15DF /* Tower.png in Resources */,
->>>>>>> aa1e2b39ba6ec0f973f942dfb4699067255fda22
 				01E9CF381F7567D4000A5A2D /* LaunchScreen.storyboard in Resources */,
 				019708411F84DAD3008B5FD4 /* Tower.png in Resources */,
 				0197083F1F84DAD3008B5FD4 /* mars.jpg in Resources */,
 				01E9CF2C1F7567D4000A5A2D /* Actions.sks in Resources */,
-				3F27AFF11F859F21002F8E34 /* chitiniac.png in Resources */,
+				3F5ED57E1F90692B00504577 /* chitiniac.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,11 +398,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9JSNN7LLGY;
+				DEVELOPMENT_TEAM = 7GVSJQ4C98;
 				INFOPLIST_FILE = BringersOfWar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SDII.BringersOfWar;
+				PRODUCT_BUNDLE_IDENTIFIER = SDII1.BringersOfWar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -451,11 +416,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9JSNN7LLGY;
+				DEVELOPMENT_TEAM = 7GVSJQ4C98;
 				INFOPLIST_FILE = BringersOfWar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SDII.BringersOfWar;
+				PRODUCT_BUNDLE_IDENTIFIER = SDII1.BringersOfWar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
