@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class GameViewController: UIViewController {
     let showDebugData = true
     let screenSize = CGSize(width:1080, height:1920)
     let scaleMode = SKSceneScaleMode.aspectFit
+    
+    var audioPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()

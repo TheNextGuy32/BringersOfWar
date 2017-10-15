@@ -18,6 +18,38 @@
 		0197083F1F84DAD3008B5FD4 /* mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0197083A1F84DAD3008B5FD4 /* mars.jpg */; };
 		019708401F84DAD3008B5FD4 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 0197083B1F84DAD3008B5FD4 /* player.png */; };
 		019708411F84DAD3008B5FD4 /* Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 0197083C1F84DAD3008B5FD4 /* Tower.png */; };
+		01C38F131F92D34E0091090F /* GSAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C38F121F92D34E0091090F /* GSAudio.swift */; };
+		01C38F301F92DAE50091090F /* menu.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F141F92DAE30091090F /* menu.wav */; };
+		01C38F311F92DAE50091090F /* on.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F151F92DAE30091090F /* on.wav */; };
+		01C38F321F92DAE50091090F /* loser.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F161F92DAE30091090F /* loser.wav */; };
+		01C38F331F92DAE50091090F /* ricochet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F171F92DAE30091090F /* ricochet.wav */; };
+		01C38F341F92DAE50091090F /* lose1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F181F92DAE30091090F /* lose1.wav */; };
+		01C38F351F92DAE50091090F /* mars.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F191F92DAE30091090F /* mars.wav */; };
+		01C38F361F92DAE50091090F /* groan1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F1A1F92DAE30091090F /* groan1.wav */; };
+		01C38F371F92DAE50091090F /* lose2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F1B1F92DAE30091090F /* lose2.wav */; };
+		01C38F391F92DAE50091090F /* death0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F1D1F92DAE30091090F /* death0.wav */; };
+		01C38F3A1F92DAE50091090F /* spawn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F1E1F92DAE40091090F /* spawn.wav */; };
+		01C38F3B1F92DAE50091090F /* towerPlace.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F1F1F92DAE40091090F /* towerPlace.wav */; };
+		01C38F3C1F92DAE50091090F /* laser0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F201F92DAE40091090F /* laser0.wav */; };
+		01C38F3D1F92DAE50091090F /* splish1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F211F92DAE40091090F /* splish1.wav */; };
+		01C38F3E1F92DAE50091090F /* splish0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F221F92DAE40091090F /* splish0.wav */; };
+		01C38F3F1F92DAE50091090F /* groan2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F231F92DAE40091090F /* groan2.wav */; };
+		01C38F401F92DAE50091090F /* robot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F241F92DAE40091090F /* robot.wav */; };
+		01C38F411F92DAE50091090F /* off.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F251F92DAE40091090F /* off.wav */; };
+		01C38F421F92DAE50091090F /* groan3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F261F92DAE40091090F /* groan3.wav */; };
+		01C38F431F92DAE50091090F /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F271F92DAE40091090F /* error.wav */; };
+		01C38F441F92DAE50091090F /* tape.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F281F92DAE40091090F /* tape.wav */; };
+		01C38F451F92DAE50091090F /* lose0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F291F92DAE40091090F /* lose0.wav */; };
+		01C38F461F92DAE50091090F /* laser3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F2A1F92DAE50091090F /* laser3.wav */; };
+		01C38F471F92DAE50091090F /* groan0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F2B1F92DAE50091090F /* groan0.wav */; };
+		01C38F481F92DAE50091090F /* base.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F2C1F92DAE50091090F /* base.wav */; };
+		01C38F491F92DAE50091090F /* laser1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F2D1F92DAE50091090F /* laser1.wav */; };
+		01C38F4A1F92DAE50091090F /* death1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F2E1F92DAE50091090F /* death1.wav */; };
+		01C38F4B1F92DAE50091090F /* laser2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F2F1F92DAE50091090F /* laser2.wav */; };
+		01C38F4D1F92DE7F0091090F /* towerPlace0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F4C1F92DE7F0091090F /* towerPlace0.wav */; };
+		01C38F531F92E28E0091090F /* machineLaser2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F501F92E28D0091090F /* machineLaser2.wav */; };
+		01C38F541F92E28E0091090F /* machineLaser0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F511F92E28E0091090F /* machineLaser0.wav */; };
+		01C38F551F92E28E0091090F /* machineLaser1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 01C38F521F92E28E0091090F /* machineLaser1.wav */; };
 		01E9CF281F7567D4000A5A2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF271F7567D4000A5A2D /* AppDelegate.swift */; };
 		01E9CF2C1F7567D4000A5A2D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01E9CF2B1F7567D4000A5A2D /* Actions.sks */; };
 		01E9CF301F7567D4000A5A2D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9CF2F1F7567D4000A5A2D /* GameViewController.swift */; };
@@ -48,6 +80,38 @@
 		0197083A1F84DAD3008B5FD4 /* mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mars.jpg; sourceTree = "<group>"; };
 		0197083B1F84DAD3008B5FD4 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		0197083C1F84DAD3008B5FD4 /* Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tower.png; sourceTree = "<group>"; };
+		01C38F121F92D34E0091090F /* GSAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSAudio.swift; sourceTree = "<group>"; };
+		01C38F141F92DAE30091090F /* menu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = menu.wav; path = BringersOfWar/Sounds/menu.wav; sourceTree = SOURCE_ROOT; };
+		01C38F151F92DAE30091090F /* on.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = on.wav; path = BringersOfWar/Sounds/on.wav; sourceTree = SOURCE_ROOT; };
+		01C38F161F92DAE30091090F /* loser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = loser.wav; path = BringersOfWar/Sounds/loser.wav; sourceTree = SOURCE_ROOT; };
+		01C38F171F92DAE30091090F /* ricochet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ricochet.wav; path = BringersOfWar/Sounds/ricochet.wav; sourceTree = SOURCE_ROOT; };
+		01C38F181F92DAE30091090F /* lose1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lose1.wav; path = BringersOfWar/Sounds/lose1.wav; sourceTree = SOURCE_ROOT; };
+		01C38F191F92DAE30091090F /* mars.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = mars.wav; path = BringersOfWar/Sounds/mars.wav; sourceTree = SOURCE_ROOT; };
+		01C38F1A1F92DAE30091090F /* groan1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = groan1.wav; path = BringersOfWar/Sounds/groan1.wav; sourceTree = SOURCE_ROOT; };
+		01C38F1B1F92DAE30091090F /* lose2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lose2.wav; path = BringersOfWar/Sounds/lose2.wav; sourceTree = SOURCE_ROOT; };
+		01C38F1D1F92DAE30091090F /* death0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = death0.wav; path = BringersOfWar/Sounds/death0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F1E1F92DAE40091090F /* spawn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = spawn.wav; path = BringersOfWar/Sounds/spawn.wav; sourceTree = SOURCE_ROOT; };
+		01C38F1F1F92DAE40091090F /* towerPlace.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = towerPlace.wav; path = BringersOfWar/Sounds/towerPlace.wav; sourceTree = SOURCE_ROOT; };
+		01C38F201F92DAE40091090F /* laser0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laser0.wav; path = BringersOfWar/Sounds/laser0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F211F92DAE40091090F /* splish1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = splish1.wav; path = BringersOfWar/Sounds/splish1.wav; sourceTree = SOURCE_ROOT; };
+		01C38F221F92DAE40091090F /* splish0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = splish0.wav; path = BringersOfWar/Sounds/splish0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F231F92DAE40091090F /* groan2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = groan2.wav; path = BringersOfWar/Sounds/groan2.wav; sourceTree = SOURCE_ROOT; };
+		01C38F241F92DAE40091090F /* robot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = robot.wav; path = BringersOfWar/Sounds/robot.wav; sourceTree = SOURCE_ROOT; };
+		01C38F251F92DAE40091090F /* off.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = off.wav; path = BringersOfWar/Sounds/off.wav; sourceTree = SOURCE_ROOT; };
+		01C38F261F92DAE40091090F /* groan3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = groan3.wav; path = BringersOfWar/Sounds/groan3.wav; sourceTree = SOURCE_ROOT; };
+		01C38F271F92DAE40091090F /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = error.wav; path = BringersOfWar/Sounds/error.wav; sourceTree = SOURCE_ROOT; };
+		01C38F281F92DAE40091090F /* tape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tape.wav; path = BringersOfWar/Sounds/tape.wav; sourceTree = SOURCE_ROOT; };
+		01C38F291F92DAE40091090F /* lose0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lose0.wav; path = BringersOfWar/Sounds/lose0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F2A1F92DAE50091090F /* laser3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laser3.wav; path = BringersOfWar/Sounds/laser3.wav; sourceTree = SOURCE_ROOT; };
+		01C38F2B1F92DAE50091090F /* groan0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = groan0.wav; path = BringersOfWar/Sounds/groan0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F2C1F92DAE50091090F /* base.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = base.wav; path = BringersOfWar/Sounds/base.wav; sourceTree = SOURCE_ROOT; };
+		01C38F2D1F92DAE50091090F /* laser1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laser1.wav; path = BringersOfWar/Sounds/laser1.wav; sourceTree = SOURCE_ROOT; };
+		01C38F2E1F92DAE50091090F /* death1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = death1.wav; path = BringersOfWar/Sounds/death1.wav; sourceTree = SOURCE_ROOT; };
+		01C38F2F1F92DAE50091090F /* laser2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laser2.wav; path = BringersOfWar/Sounds/laser2.wav; sourceTree = SOURCE_ROOT; };
+		01C38F4C1F92DE7F0091090F /* towerPlace0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = towerPlace0.wav; path = BringersOfWar/Sounds/towerPlace0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F501F92E28D0091090F /* machineLaser2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = machineLaser2.wav; path = BringersOfWar/Sounds/machineLaser2.wav; sourceTree = SOURCE_ROOT; };
+		01C38F511F92E28E0091090F /* machineLaser0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = machineLaser0.wav; path = BringersOfWar/Sounds/machineLaser0.wav; sourceTree = SOURCE_ROOT; };
+		01C38F521F92E28E0091090F /* machineLaser1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = machineLaser1.wav; path = BringersOfWar/Sounds/machineLaser1.wav; sourceTree = SOURCE_ROOT; };
 		01E9CF241F7567D4000A5A2D /* BringersOfWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BringersOfWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E9CF271F7567D4000A5A2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01E9CF2B1F7567D4000A5A2D /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -121,6 +185,45 @@
 			path = Sprites;
 			sourceTree = "<group>";
 		};
+		01C38EF31F92D26F0091090F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				01C38F511F92E28E0091090F /* machineLaser0.wav */,
+				01C38F521F92E28E0091090F /* machineLaser1.wav */,
+				01C38F501F92E28D0091090F /* machineLaser2.wav */,
+				01C38F4C1F92DE7F0091090F /* towerPlace0.wav */,
+				01C38F2C1F92DAE50091090F /* base.wav */,
+				01C38F1D1F92DAE30091090F /* death0.wav */,
+				01C38F2E1F92DAE50091090F /* death1.wav */,
+				01C38F271F92DAE40091090F /* error.wav */,
+				01C38F2B1F92DAE50091090F /* groan0.wav */,
+				01C38F1A1F92DAE30091090F /* groan1.wav */,
+				01C38F231F92DAE40091090F /* groan2.wav */,
+				01C38F261F92DAE40091090F /* groan3.wav */,
+				01C38F201F92DAE40091090F /* laser0.wav */,
+				01C38F2D1F92DAE50091090F /* laser1.wav */,
+				01C38F2F1F92DAE50091090F /* laser2.wav */,
+				01C38F2A1F92DAE50091090F /* laser3.wav */,
+				01C38F291F92DAE40091090F /* lose0.wav */,
+				01C38F181F92DAE30091090F /* lose1.wav */,
+				01C38F1B1F92DAE30091090F /* lose2.wav */,
+				01C38F161F92DAE30091090F /* loser.wav */,
+				01C38F191F92DAE30091090F /* mars.wav */,
+				01C38F141F92DAE30091090F /* menu.wav */,
+				01C38F251F92DAE40091090F /* off.wav */,
+				01C38F151F92DAE30091090F /* on.wav */,
+				01C38F171F92DAE30091090F /* ricochet.wav */,
+				01C38F241F92DAE40091090F /* robot.wav */,
+				01C38F1E1F92DAE40091090F /* spawn.wav */,
+				01C38F221F92DAE40091090F /* splish0.wav */,
+				01C38F211F92DAE40091090F /* splish1.wav */,
+				01C38F281F92DAE40091090F /* tape.wav */,
+				01C38F1F1F92DAE40091090F /* towerPlace.wav */,
+			);
+			name = Sounds;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		01E9CF1B1F7567D4000A5A2D = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +243,7 @@
 		01E9CF261F7567D4000A5A2D /* BringersOfWar */ = {
 			isa = PBXGroup;
 			children = (
+				01C38EF31F92D26F0091090F /* Sounds */,
 				3F5ED57F1F9069EF00504577 /* Managers */,
 				019708371F84DAD3008B5FD4 /* Sprites */,
 				0197082E1F84CA7F008B5FD4 /* Model */,
@@ -173,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				3F5ED5801F906A0A00504577 /* TowerManager.swift */,
+				01C38F121F92D34E0091090F /* GSAudio.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -236,17 +341,48 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01C38F331F92DAE50091090F /* ricochet.wav in Resources */,
+				01C38F3B1F92DAE50091090F /* towerPlace.wav in Resources */,
+				01C38F311F92DAE50091090F /* on.wav in Resources */,
+				01C38F401F92DAE50091090F /* robot.wav in Resources */,
 				0197083D1F84DAD3008B5FD4 /* Bullet.png in Resources */,
+				01C38F4A1F92DAE50091090F /* death1.wav in Resources */,
 				01E9CF331F7567D4000A5A2D /* Main.storyboard in Resources */,
 				019708401F84DAD3008B5FD4 /* player.png in Resources */,
 				01E9CF351F7567D4000A5A2D /* Assets.xcassets in Resources */,
+				01C38F371F92DAE50091090F /* lose2.wav in Resources */,
+				01C38F551F92E28E0091090F /* machineLaser1.wav in Resources */,
+				01C38F411F92DAE50091090F /* off.wav in Resources */,
+				01C38F461F92DAE50091090F /* laser3.wav in Resources */,
+				01C38F451F92DAE50091090F /* lose0.wav in Resources */,
 				3F5ED57A1F90671700504577 /* Native.atlas in Resources */,
+				01C38F431F92DAE50091090F /* error.wav in Resources */,
+				01C38F3A1F92DAE50091090F /* spawn.wav in Resources */,
+				01C38F481F92DAE50091090F /* base.wav in Resources */,
+				01C38F3E1F92DAE50091090F /* splish0.wav in Resources */,
+				01C38F441F92DAE50091090F /* tape.wav in Resources */,
+				01C38F531F92E28E0091090F /* machineLaser2.wav in Resources */,
+				01C38F321F92DAE50091090F /* loser.wav in Resources */,
+				01C38F421F92DAE50091090F /* groan3.wav in Resources */,
+				01C38F351F92DAE50091090F /* mars.wav in Resources */,
+				01C38F4B1F92DAE50091090F /* laser2.wav in Resources */,
 				0197083E1F84DAD3008B5FD4 /* Mars CH16.png in Resources */,
+				01C38F341F92DAE50091090F /* lose1.wav in Resources */,
 				01E9CF381F7567D4000A5A2D /* LaunchScreen.storyboard in Resources */,
 				019708411F84DAD3008B5FD4 /* Tower.png in Resources */,
 				0197083F1F84DAD3008B5FD4 /* mars.jpg in Resources */,
+				01C38F301F92DAE50091090F /* menu.wav in Resources */,
+				01C38F491F92DAE50091090F /* laser1.wav in Resources */,
+				01C38F3D1F92DAE50091090F /* splish1.wav in Resources */,
 				01E9CF2C1F7567D4000A5A2D /* Actions.sks in Resources */,
+				01C38F3F1F92DAE50091090F /* groan2.wav in Resources */,
+				01C38F4D1F92DE7F0091090F /* towerPlace0.wav in Resources */,
+				01C38F361F92DAE50091090F /* groan1.wav in Resources */,
 				3F5ED57E1F90692B00504577 /* chitiniac.png in Resources */,
+				01C38F3C1F92DAE50091090F /* laser0.wav in Resources */,
+				01C38F391F92DAE50091090F /* death0.wav in Resources */,
+				01C38F541F92E28E0091090F /* machineLaser0.wav in Resources */,
+				01C38F471F92DAE50091090F /* groan0.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +397,7 @@
 				01E9CF301F7567D4000A5A2D /* GameViewController.swift in Sources */,
 				01E9CF421F7581FF000A5A2D /* Tower.swift in Sources */,
 				3FED457C1F798ACE0037C005 /* Utillities.swift in Sources */,
+				01C38F131F92D34E0091090F /* GSAudio.swift in Sources */,
 				0197082C1F84C8F7008B5FD4 /* GameData.swift in Sources */,
 				019708241F83CB26008B5FD4 /* SplashScene.swift in Sources */,
 				01E9CF281F7567D4000A5A2D /* AppDelegate.swift in Sources */,
@@ -410,11 +547,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7GVSJQ4C98;
+				DEVELOPMENT_TEAM = 9JSNN7LLGY;
 				INFOPLIST_FILE = BringersOfWar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SDII1.BringersOfWar;
+				PRODUCT_BUNDLE_IDENTIFIER = SDII1.BringersOfWar0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -428,11 +565,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7GVSJQ4C98;
+				DEVELOPMENT_TEAM = 9JSNN7LLGY;
 				INFOPLIST_FILE = BringersOfWar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SDII1.BringersOfWar;
+				PRODUCT_BUNDLE_IDENTIFIER = SDII1.BringersOfWar0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

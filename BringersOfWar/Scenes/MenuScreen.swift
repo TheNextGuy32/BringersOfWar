@@ -24,6 +24,7 @@ class MenuScene: SKScene {
         fatalError("It done gone run unfixed itself Colonel!")
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        GSAudio.sharedInstance.playSound(soundFileName: "menu.wav", volume:1.0)
         sceneManager.loadGameScene(levelNum: 1, totalScore: 0)
     }
     

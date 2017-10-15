@@ -32,6 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //
+    
     // UI mode
     var isPlacingTower:Bool = false;
     var towerButton:SKShapeNode!
@@ -83,6 +85,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         colonyNode.physicsBody?.collisionBitMask = PhysicsCategory.NATIVE
         colonyNode.physicsBody?.contactTestBitMask = PhysicsCategory.NATIVE
         addChild(colonyNode)
+        
+        GSAudio.sharedInstance.playSound(soundFileName: "mars.wav",volume:0.2)
     }
     
     // Finds the game objects in the GameScene.sks
@@ -141,7 +145,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lives = lives - 1
         
         if(lives <= 0) {
+            GSAudio.sharedInstance.playSound(soundFileName: "loser.wav",volume:1.0)
             restartLevel()
+            
         }
     }
     
@@ -221,6 +227,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch(otherNode.name!) {
         case Names.BULLET_NAME:
             // Bullet Collision. Remove both.
+            let deathSound = random(min: 0, max:1)
+            GSAudio.sharedInstance.playSound(soundFileName: "splish\(deathSound).wav",volume:0.2)
             nativeNode.removeFromParent()
             otherNode.removeFromParent()
             break
@@ -228,6 +236,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Collision with base. Remove native. damage base
             nativeNode.removeFromParent()
             self.damageColony()
+            GSAudio.sharedInstance.playSound(soundFileName: "base.wav",volume:0.9)
             break;
         default:
             print("Unhandled Collision")
