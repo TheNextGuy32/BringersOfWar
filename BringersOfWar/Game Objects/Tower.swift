@@ -33,8 +33,18 @@ class Tower : SKSpriteNode{
         super.init(texture: texture, color: UIColor.clear, size: TowerData.SIZE)
         self.name = Names.TOWER_NAME
         
+        // Add selection circle
+        let selectionCircle = SKShapeNode(circleOfRadius: CGFloat(TowerData.SIZE.width))
+        selectionCircle.name = Names.TOWER_SELECTION_CIRCLE
+        selectionCircle.position = CGPoint(x: 0, y: 0)
+        selectionCircle.strokeColor = SKColor.white
+        selectionCircle.glowWidth = 1.0
+        selectionCircle.fillColor = SKColor.clear
+        self.addChild(selectionCircle)
+        
         // Add range circle
         let rangeCircle = SKShapeNode(circleOfRadius: CGFloat(range))
+        rangeCircle.name = Names.TOWER_RANGE_CIRCLE
         rangeCircle.position = CGPoint(x: 0, y: 0)
         rangeCircle.strokeColor = SKColor.blue
         rangeCircle.glowWidth = 4.0
@@ -49,16 +59,18 @@ class Tower : SKSpriteNode{
     
     // Fire bullet at point
     func fireBullet(target:CGPoint) {
-        let vectorBetween:CGVector = CGVector(dx: target.x - self.position.x, dy: target.y - self.position.y)
-        let length = sqrt(vectorBetween.dx * vectorBetween.dx + vectorBetween.dy * vectorBetween.dy)
+        // Create and fire bullet
+        let bullet = Bullet(tower:self)
+        bullet.position = self.position;
+        gameScene.addChild(bullet)
+        bullet.moveTowardsTarget(target: target)
         
-        // Check if point is in range
-        if (length <= range) {
-            // Create and fire bullet
-            let bullet = Bullet(tower:self)
-            bullet.position = self.position;
-            gameScene.addChild(bullet)
-            bullet.moveTowardsTarget(target: target)
-        }
+        // Face target
+        let vectorTo = vectorToFrom(target, self.position)
+        self.zRotation = atan2(vectorTo.dy, vectorTo.dx) - HALF_PI
+    }
+    
+    func isPointInRange(_ point: CGPoint) -> Bool {
+        return distance(point, self.position) < self.range
     }
 }

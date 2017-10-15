@@ -11,21 +11,22 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var levelNum:Int
-    var levelScore:Int = 0
-    var totalScore:Int
+    var levelNum:Int!
+    var levelScore:Int! = 0
+    var totalScore:Int!
     
-    let sceneManager:GameViewController
+    var sceneManager:GameViewController!
+    var towerManager:TowerManager!
     
     var playableRect = CGRect.zero
     
     // Game Vars
-    var lives:Int {
+    var lives:Int! {
         didSet {
             livesLabel.text = "Lives left: \(lives)"
         }
     }
-    var towersLeft:Int {
+    var towersLeft:Int! {
         didSet {
             towerLabel.text = "Towers left: \(towersLeft)"
         }
@@ -35,32 +36,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isPlacingTower:Bool = false;
     var towerButton:SKShapeNode!
     
-    // Game objects
-    var towers:[Tower]!
-    var bullets:[Bullet]!
-    var natives:[Native]!
+  
     
     // User Interface
     var livesLabel = SKLabelNode()
     var towerLabel = SKLabelNode()
     
     init(size: CGSize, scaleMode: SKSceneScaleMode, levelNum:Int, totalScore:Int, sceneManager:GameViewController) {
+        super.init(size: size)
+        
+        // Set up Managers
+        self.sceneManager = sceneManager
+        self.towerManager = TowerManager(gameScene:self)
         
         self.levelNum = levelNum
         self.totalScore = totalScore
-        self.sceneManager = sceneManager
         
         self.lives = 3
         self.towersLeft = 6
         
-        towers = []
-        bullets = []
-        natives = []
-        
-        super.init(size: size)
-        
         self.scaleMode = scaleMode
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("It done gone fucked up Sarge!")
     }
@@ -161,43 +158,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             ]))
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Check if touch works
         guard let touch = touches.first else {
             return
         }
         
+        // Find touch position
         let touchPosition = touch.location(in: self)
-        let node = self.nodes(at: touchPosition).first
+        
+        towerManager.handlePlayerTouchBegan(position: touchPosition)
+    }
+    
+    // Hanlde touches ending
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Check if touch works
+        guard let touch = touches.first else {
+            return
+        }
+        
+        // Find touch position
+        let touchPosition = touch.location(in: self)
         
         // Check if tower button is pressed
-        if node != nil {
-            let name = node?.name
-            
-            if(name == towerButton.name) {
-                isPlacingTower = !isPlacingTower
+        if let node = self.nodes(at: touchPosition).first {
+            if(node.name == towerButton.name) {
+                towerManager.toggleActivation()
                 
-                towerButton.fillColor = isPlacingTower ? SKColor.green : SKColor.gray
+                towerButton.fillColor = towerManager.mode == .TOWER_PLACEMENT ? SKColor.green : SKColor.gray
                 return
             }
         }
         
-        // Check if we are in placing mode
-        if(isPlacingTower && towersLeft > 0) {
-            let tower = Tower(gameScene: self)
-            
-            // Place tower
-            tower.position = touchPosition
-            addChild(tower)
-            towers.append(tower)
-            
-            towersLeft = towersLeft - 1
-            
-        } else {
-            // Fire the tower bullets
-            for tower:Tower in towers {
-                tower.fireBullet(target: touchPosition)
-            }
-        }
+        towerManager.handlePlayerTouchEnd(position: touchPosition)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -209,19 +202,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Mark: - Collision -
     func didBegin(_ contact: SKPhysicsContact) {
-        let nodeA = contact.bodyA.node
-        let nodeB = contact.bodyB.node
-        
-        print("\(nodeA!.name!) collided with \(nodeB!.name!)")
-        
-        
-        // Check if nodeA is a Native
-        if nodeA!.name == Names.NATIVE_NAME {
-            handleNativeCollision(nativeNode: nodeA!, otherNode: nodeB!)
-        } else if nodeB!.name == Names.NATIVE_NAME {
-            handleNativeCollision(nativeNode: nodeB!, otherNode: nodeA!)
-        } else {
-            print("Unhandled Collision")
+        if let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node {
+            print("\(nodeA.name ?? nil) collided with \(nodeB.name)")
+            
+            // Check if nodeA is a Native
+            if nodeA.name == Names.NATIVE_NAME {
+                handleNativeCollision(nativeNode: nodeA, otherNode: nodeB)
+            } else if nodeB.name == Names.NATIVE_NAME {
+                handleNativeCollision(nativeNode: nodeB, otherNode: nodeA)
+            } else {
+                print("Unhandled Collision")
+            }
         }
     }
     

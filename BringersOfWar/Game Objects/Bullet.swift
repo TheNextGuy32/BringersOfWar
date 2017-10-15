@@ -44,12 +44,14 @@ class Bullet : SKSpriteNode{
     
     // Move bullet towards target
     public func moveTowardsTarget(target:CGPoint) {
-        let vectorBetween:CGVector = CGVector(dx: target.x - self.position.x, dy: target.y - self.position.y)
-        let length = sqrt(vectorBetween.dx * vectorBetween.dx + vectorBetween.dy * vectorBetween.dy)
-
+        var movementVector = vectorToFrom(target, self.position)
+        let length = max(movementVector.getMagnitude(), tower.range)
+        movementVector.setMagnitude(length)
+        let movementDuration = TimeInterval(Double(length / movementSpeed))
+        
         // Movement action
         run(SKAction.sequence([
-                SKAction.move(by: vectorBetween, duration: TimeInterval(Double(length / movementSpeed))),
+                SKAction.move(by: movementVector, duration: movementDuration),
                 SKAction.removeFromParent()
             ])
         )

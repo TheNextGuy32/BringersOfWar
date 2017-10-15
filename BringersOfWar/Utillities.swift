@@ -21,13 +21,33 @@ func random(min: Int, max: Int) -> Int {
     return Int(random() * CGFloat(max - min)) + min
 }
 
+func clamp(_ value: CGFloat, _ minValue: CGFloat, _ maxValue: CGFloat) -> CGFloat{
+    return min(max(value, minValue), maxValue)
+}
+
 // Vector between points
-func vectorBetween(_ a: CGPoint, _ b: CGPoint) -> CGVector {
-    return CGVector(dx: a.x - b.x, dy: a.y - b.y)
+func vectorToFrom(_ to: CGPoint, _ from: CGPoint) -> CGVector {
+    return CGVector(dx: to.x - from.x, dy: to.y - from.y)
 }
 
 func distance(_ a: CGPoint, _ b: CGPoint) -> CGFloat {
-    let vector = vectorBetween(a, b)
-    return sqrt(vector.dx * vector.dx + vector.dy * vector.dy)
+    let vectorBetween = vectorToFrom(a, b)
+    return sqrt(vectorBetween.dx * vectorBetween.dx + vectorBetween.dy * vectorBetween.dy)
 }
 
+extension CGVector{
+    func getMagnitude() -> CGFloat {
+        return sqrt(self.dx * self.dx + self.dy * self.dy)
+    }
+    
+    func getMagnitudeSquare() -> CGFloat {
+        return self.dx * self.dx + self.dy * self.dy
+    }
+    
+    mutating func setMagnitude(_ newMagnitude: CGFloat) {
+        let magnitude = self.getMagnitude()
+        
+        self.dx = self.dx / magnitude * newMagnitude
+        self.dy = self.dy / magnitude * newMagnitude
+    }
+}

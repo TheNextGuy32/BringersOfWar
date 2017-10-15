@@ -31,9 +31,12 @@ struct Sprites {
 // Names used by game objects
 struct Names {
     static let NATIVE_NAME  = "Native"
-    static let TOWER_NAME   = "Tower"
     static let BULLET_NAME  = "Bullet"
     static let BASE_NAME    = "Base"
+    
+    static let TOWER_NAME               = "Tower"
+    static let TOWER_SELECTION_CIRCLE   = "Tower Selection Circle"
+    static let TOWER_RANGE_CIRCLE       = "Tower Range Circle"
 }
 
 // Data associated with the Martian Natives
@@ -60,6 +63,6 @@ struct BulletData {
 
 let FIXED_DELTA_TIME = CGFloat(0.0166666666666666666)
 
-let PI = Float(3.14159265359)
+let PI = CGFloat(3.14159265359)
 let TWO_PI = PI * 2
 let HALF_PI = PI / 2
