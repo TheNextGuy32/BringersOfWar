@@ -20,16 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Game Vars
     var lives:Int! {
         didSet {
-            livesLabel.text = "Lives left: \(lives)"
+            livesLabel.text = "Lives left: \(lives!)"
         }
     }
-    var towersLeft:Int! {
-        didSet {
-            towerLabel.text = "Towers left: \(towersLeft)"
-        }
-    }
-    
-    //
     
     // UI mode
     var isPlacingTower:Bool = false;
@@ -44,11 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Set up Managers
         self.sceneManager = sceneManager
-        self.towerManager = TowerManager(gameScene:self)
-    
+        self.towerManager = TowerManager(scene:self)
         
         self.lives = 3
-        self.towersLeft = 6
         
         self.scaleMode = scaleMode
     }
@@ -105,8 +96,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         towerButton.position = CGPoint(x: self.frame.maxX - 50, y: self.frame.minY + 50)
         towerButton.zPosition = 100
         addChild(towerButton)
+        towerManager.onModeSet = { (mode:TowerManager.Mode) in
+            self.towerButton.fillColor = mode == .TOWER_PLACEMENT ? SKColor.green : SKColor.gray
+        }
         
-        livesLabel.text = "Lives Left: \(lives)"
+        livesLabel.text = "Lives Left: \(lives!)"
         livesLabel.fontName = "BanglaSangamMN"
         livesLabel.fontColor  = SKColor.white
         livesLabel.verticalAlignmentMode = .bottom
@@ -115,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesLabel.zPosition = 100
         addChild(livesLabel)
         
-        towerLabel.text = "Towers left: \(towersLeft)"
+        towerLabel.text = "Towers left: 6"
         towerLabel.fontName = "BanglaSangamMN"
         towerLabel.fontColor = SKColor.white
         towerLabel.verticalAlignmentMode = .bottom
@@ -123,6 +117,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         towerLabel.position = CGPoint(x: self.frame.minX + 400, y: self.frame.minY + 50)
         towerLabel.zPosition = 100
         addChild(towerLabel)
+        towerManager.onTowerCountChanged = { (towersLeft) in
+            self.towerLabel.text = "Towers Left: \(towersLeft)"
+        }
     }
     
     // Handle enemy spawning
@@ -162,6 +159,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
     
+    override func update(_ currentTime: TimeInterval) {
+        TimeInterval.currentTime = currentTime
+        towerManager?.updateTowers(currentTime)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Check if touch works
         guard let touch = touches.first else {
@@ -188,8 +190,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let node = self.nodes(at: touchPosition).first {
             if(node.name == towerButton.name) {
                 towerManager.toggleActivation()
-
-                towerButton.fillColor = towerManager.mode == .TOWER_PLACEMENT ? SKColor.green : SKColor.gray
                 return
             }
         }

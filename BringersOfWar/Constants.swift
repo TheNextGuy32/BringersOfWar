@@ -37,6 +37,7 @@ struct Names {
     static let TOWER_NAME               = "Tower"
     static let TOWER_SELECTION_CIRCLE   = "Tower Selection Circle"
     static let TOWER_RANGE_CIRCLE       = "Tower Range Circle"
+    static let TOWER_COOLDOWN_CIRCLE    = "Tower Cooldown Circle"
 }
 
 // Data associated with the Martian Natives
@@ -55,7 +56,7 @@ struct NativeData {
 struct TowerData {
     static let RANGE:CGFloat = 200
     static let DAMAGE   = 3
-    static let COOLDOWN:Float = 1.5
+    static let COOLDOWN:Float = 0.25
     static let SIZE = CGSize(width: 32, height: 32)
     static let SELECTION_Z:CGFloat = 7.0
     static let RANGE_Z:CGFloat = 6.0
