@@ -14,6 +14,7 @@ class Bullet : SKSpriteNode {
     var radius:Float!
     var movementSpeed:CGFloat!
     var tower:Tower!
+    public var direction:CGVector!
     
     init(tower:Tower) {
         // Store reference to associated tower
@@ -29,6 +30,8 @@ class Bullet : SKSpriteNode {
         super.init(texture: texture, color: UIColor.clear, size: BulletData.SIZE)
         self.name = Names.BULLET_NAME
         
+        self.direction = CGVector(dx:0,dy:0)
+        
         // Set up physics
         self.physicsBody = SKPhysicsBody(circleOfRadius: BulletData.SIZE.width / 2)
         self.physicsBody?.affectedByGravity = false
@@ -38,6 +41,7 @@ class Bullet : SKSpriteNode {
         self.physicsBody?.contactTestBitMask = PhysicsCategory.NATIVE
         
         self.emitter = SKEmitterNode(fileNamed: "bullet")!
+        self.emitter.zPosition = CGFloat(BulletData.EMITTER_Z)
         addChild(self.emitter)
     }
     
@@ -52,6 +56,8 @@ class Bullet : SKSpriteNode {
         let length = max(movementVector.getMagnitude(), tower.range)
         movementVector.setMagnitude(length)
         let movementDuration = TimeInterval(Double(length / movementSpeed))
+        
+        direction = CGVector(dx:movementVector.dx/length, dy:movementVector.dy/length)
         
         self.emitter.xAcceleration = -(movementVector.dx/length * 1000)
         self.emitter.yAcceleration = -(movementVector.dy/length * 1000)

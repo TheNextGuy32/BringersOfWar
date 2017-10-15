@@ -12,8 +12,10 @@ import SpriteKit
 class Tower : SKSpriteNode{
     var range:CGFloat!
     var damage:Int!
+    
     var cooldown:Float!
     var cooldownTimer:Float!
+    
     var gameScene:GameScene!
     
     init(gameScene:GameScene) {
@@ -38,8 +40,9 @@ class Tower : SKSpriteNode{
         selectionCircle.name = Names.TOWER_SELECTION_CIRCLE
         selectionCircle.position = CGPoint(x: 0, y: 0)
         selectionCircle.strokeColor = SKColor.white
-        selectionCircle.glowWidth = 1.0
+        selectionCircle.glowWidth = 0.5
         selectionCircle.fillColor = SKColor.clear
+        selectionCircle.zPosition = TowerData.SELECTION_Z
         self.addChild(selectionCircle)
         
         // Add range circle
@@ -47,8 +50,9 @@ class Tower : SKSpriteNode{
         rangeCircle.name = Names.TOWER_RANGE_CIRCLE
         rangeCircle.position = CGPoint(x: 0, y: 0)
         rangeCircle.strokeColor = SKColor.blue
-        rangeCircle.glowWidth = 4.0
+        rangeCircle.glowWidth = 2.0
         rangeCircle.fillColor = SKColor.clear
+        rangeCircle.zPosition = TowerData.SELECTION_Z
         self.addChild(rangeCircle)
     }
     
@@ -61,7 +65,8 @@ class Tower : SKSpriteNode{
     func fireBullet(target:CGPoint) {
         // Create and fire bullet
         let bullet = Bullet(tower:self)
-        bullet.position = self.position;
+        bullet.position = self.position
+        bullet.zPosition = BulletData.Z
         gameScene.addChild(bullet)
         bullet.moveTowardsTarget(target: target)
         

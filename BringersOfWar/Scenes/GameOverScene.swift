@@ -32,21 +32,21 @@ class GameOverScene: SKScene {
         
         let label0 = SKLabelNode(fontNamed: GameData.font.mainFont)
         label0.text = "Game Over"
-        label0.fontSize = 150
+        label0.fontSize = 100
         label0.position = CGPoint(x:size.width/2, y:size.height/2 + 200)
         addChild(label0)
         
         let label1 = SKLabelNode(fontNamed: GameData.font.mainFont)
         label1.text = "You got \(score) points!"
-        label1.fontSize = 70
-        label1.position = CGPoint(x:size.width/2, y:size.height/2 - 100)
+        label1.fontSize = 50
+        label1.position = CGPoint(x:size.width/2, y:size.height/2 + 100)
         addChild(label1)
         
         let label2 = SKLabelNode(fontNamed: GameData.font.mainFont)
         label2.text = "Tap to return to Menu"
         label2.fontColor = UIColor.red
-        label2.fontSize = 70
-        label2.position = CGPoint(x:size.width/2, y:size.height/2 - 400)
+        label2.fontSize = 35
+        label2.position = CGPoint(x:size.width/2, y:size.height/2 - 100)
         addChild(label2)
     }
     

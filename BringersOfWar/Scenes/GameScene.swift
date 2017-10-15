@@ -67,10 +67,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         // Place colony collision
-        let colonyColliderRect = CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: 192))
+        let colonyColliderRect = CGRect(origin: self.frame.origin, size: CGSize(width: self.frame.width, height: ColonyData.HEIGHT))
         let colonyNode = SKShapeNode(rect: colonyColliderRect)
+        colonyNode.zPosition = ColonyData.Z
         colonyNode.name = Names.BASE_NAME
-        colonyNode.strokeColor = .green
+        colonyNode.strokeColor = .darkGray
+        colonyNode.fillColor = .darkGray
         colonyNode.physicsBody = SKPhysicsBody(edgeLoopFrom: colonyColliderRect)
         colonyNode.physicsBody?.isDynamic = false
         colonyNode.physicsBody?.affectedByGravity = false
@@ -79,17 +81,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         colonyNode.physicsBody?.contactTestBitMask = PhysicsCategory.NATIVE
         addChild(colonyNode)
         
-        GSAudio.sharedInstance.playSound(soundFileName: "mars.wav",volume:0.2)
+        GSAudio.sharedInstance.playSound(soundFileName: "mars.wav",volume:0.3)
     }
     
     // Finds the game objects in the GameScene.sks
     func setupUserInterface() {
+        
+        for y in 0...25 {
+            for x in 0...25 {
+                let earth = SKSpriteNode(imageNamed: "earth.png")
+                earth.anchorPoint = CGPoint(x:0,y:0)
+                earth.position = CGPoint(x: x * 512, y: y * 512)
+                earth.zPosition = -10
+                addChild(earth)
+            }
+        }
+        
         // Tower Placement Button
-        towerButton = SKShapeNode(rectOf: CGSize(width: 96, height: 96))
+        towerButton = SKShapeNode(rectOf: CGSize(width: 50, height: 50))
         towerButton.name = "Tower Button"
         towerButton.fillTexture = SKTexture(imageNamed: "Tower.png")
         towerButton.fillColor = SKColor.white
-        towerButton.position = CGPoint(x: self.frame.maxX - 96, y: self.frame.minY + 96)
+        towerButton.position = CGPoint(x: self.frame.maxX - 50, y: self.frame.minY + 50)
         towerButton.zPosition = 100
         addChild(towerButton)
         
@@ -97,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesLabel.fontColor  = SKColor.red
         livesLabel.verticalAlignmentMode = .bottom
         livesLabel.horizontalAlignmentMode = .left
-        livesLabel.position = CGPoint(x: self.frame.minX + 150, y: self.frame.minY + 40)
+        livesLabel.position = CGPoint(x: self.frame.minX + 50, y: self.frame.minY + 50)
         livesLabel.zPosition = 100
         addChild(livesLabel)
         
@@ -105,7 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         towerLabel.fontColor = SKColor.red
         towerLabel.verticalAlignmentMode = .bottom
         towerLabel.horizontalAlignmentMode = .left
-        towerLabel.position = CGPoint(x: self.frame.minX + 150, y: self.frame.minY + 96)
+        towerLabel.position = CGPoint(x: self.frame.minX + 200, y: self.frame.minY + 50)
         towerLabel.zPosition = 100
         addChild(towerLabel)
     }
@@ -129,6 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spawnPointX = random(min: frame.minX, max: frame.maxX)
         
         native.position = CGPoint(x: spawnPointX, y: frame.maxY)
+        native.zPosition = NativeData.Z
         addChild(native)
         native.moveTowardsColony()
     }
@@ -154,8 +168,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Find touch position
         let touchPosition = touch.location(in: self)
-        
-        towerManager.handlePlayerTouchBegan(position: touchPosition)
+        if touchPosition.y > ColonyData.HEIGHT {
+            towerManager.handlePlayerTouchBegan(position: touchPosition)
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -176,8 +191,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 return
             }
         }
-        
-        towerManager.handlePlayerTouchEnd(position: touchPosition)
+        if touchPosition.y > ColonyData.HEIGHT {
+          towerManager.handlePlayerTouchEnd(position: touchPosition)
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,14 +219,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch(otherNode.name!) {
         case Names.BULLET_NAME:
             // Bullet Collision. Remove both.
+            
             let deathSound = random(min: 0, max:1)
             GSAudio.sharedInstance.playSound(soundFileName: "splish\(deathSound).wav",volume:0.2)
+            
             score += 10
+            
+            let blood = SKEmitterNode(fileNamed: "blood")!
+            blood.position = nativeNode.position
+            let bullet = otherNode as! Bullet
+            blood.emissionAngle = atan2(bullet.direction.dy,bullet.direction.dx)
+//            blood.zPosition = CGFloat(BulletData.EMITTER_Z)
+            addChild(blood)
+        
+            let kill = SKAction.sequence([
+                SKAction.wait(forDuration: 0.2),
+                SKAction.run {blood.particleBirthRate = 0},
+                SKAction.wait(forDuration: 0.2),
+                SKAction.run {blood.removeFromParent()}
+                ])
+            run(kill)
+            
             nativeNode.removeFromParent()
             otherNode.removeFromParent()
             break
         case Names.BASE_NAME:
             // Collision with base. Remove native. damage base
+            
+            let explosion = SKEmitterNode(fileNamed: "explosion")!
+            explosion.position = nativeNode.position
+//            explosion.zPosition = CGFloat(BulletData.EMITTER_Z)
+            addChild(explosion)
+            
+            let kill = SKAction.sequence([
+                SKAction.wait(forDuration: 0.2),
+                SKAction.run {explosion.particleBirthRate = 0},
+                SKAction.wait(forDuration: 0.2),
+                SKAction.run {explosion.removeFromParent()}
+                ])
+            run(kill)
+            
             nativeNode.removeFromParent()
             self.damageColony()
             GSAudio.sharedInstance.playSound(soundFileName: "base.wav",volume:0.9)

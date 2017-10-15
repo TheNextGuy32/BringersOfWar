@@ -41,7 +41,7 @@ class MenuScene: SKScene {
         
         let label0 = SKLabelNode(fontNamed: GameData.font.mainFont)
         label0.text = "Bringer of War"
-        label0.fontSize = 100
+        label0.fontSize = 90
         label0.position = CGPoint(x: size.width/2, y: size.height/2 + 400)
         label0.zPosition = 1
         addChild(label0)

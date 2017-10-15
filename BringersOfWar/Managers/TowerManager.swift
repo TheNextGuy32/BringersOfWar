@@ -80,7 +80,7 @@ class TowerManager {
         // Check if their is a tower remaining.
         if towersLeft <= 0 {
             // TODO: Play Sound "Error"
-            GSAudio.sharedInstance.playSound(soundFileName: "error.wav", volume: 0.25)
+            GSAudio.sharedInstance.playSound(soundFileName: "badum.wav", volume: 0.25)
             return
         }
         
@@ -90,6 +90,7 @@ class TowerManager {
         
         // Place tower at position
         tower.position = position
+        tower.zPosition = TowerData.Z
         gameScene.addChild(tower)
         
         GSAudio.sharedInstance.playSound(soundFileName: "towerPlace.wav", volume: 0.5)
