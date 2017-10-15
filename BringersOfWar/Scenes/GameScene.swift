@@ -226,6 +226,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Bullet Collision. Remove both.
             let deathSound = random(min: 0, max:1)
             GSAudio.sharedInstance.playSound(soundFileName: "splish\(deathSound).wav",volume:0.2)
+            score += 10
             nativeNode.removeFromParent()
             otherNode.removeFromParent()
             break

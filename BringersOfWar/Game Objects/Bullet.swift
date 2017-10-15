@@ -8,7 +8,8 @@
 
 import Foundation
 import SpriteKit
-class Bullet : SKSpriteNode{
+class Bullet : SKSpriteNode {
+    var emitter:SKEmitterNode!
     var damage:Int!
     var radius:Float!
     var movementSpeed:CGFloat!
@@ -35,6 +36,9 @@ class Bullet : SKSpriteNode{
         self.physicsBody?.categoryBitMask = PhysicsCategory.BULLET
         self.physicsBody?.collisionBitMask = PhysicsCategory.NATIVE
         self.physicsBody?.contactTestBitMask = PhysicsCategory.NATIVE
+        
+        self.emitter = SKEmitterNode(fileNamed: "bullet")!
+        addChild(self.emitter)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,7 +50,9 @@ class Bullet : SKSpriteNode{
     public func moveTowardsTarget(target:CGPoint) {
         let vectorBetween:CGVector = CGVector(dx: target.x - self.position.x, dy: target.y - self.position.y)
         let length = sqrt(vectorBetween.dx * vectorBetween.dx + vectorBetween.dy * vectorBetween.dy)
-
+    
+        self.emitter.xAcceleration = -(vectorBetween.dx/length * 1000)
+        self.emitter.yAcceleration = -(vectorBetween.dy/length * 1000)
         // Movement action
         run(SKAction.sequence([
                 SKAction.move(by: vectorBetween, duration: TimeInterval(Double(length / movementSpeed))),
