@@ -107,7 +107,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(towerButton)
         
         livesLabel.text = "Lives Left: \(lives)"
-        livesLabel.fontColor  = SKColor.red
+        livesLabel.fontName = "BanglaSangamMN"
+        livesLabel.fontColor  = SKColor.white
         livesLabel.verticalAlignmentMode = .bottom
         livesLabel.horizontalAlignmentMode = .left
         livesLabel.position = CGPoint(x: self.frame.minX + 50, y: self.frame.minY + 50)
@@ -115,10 +116,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(livesLabel)
         
         towerLabel.text = "Towers left: \(towersLeft)"
-        towerLabel.fontColor = SKColor.red
+        towerLabel.fontName = "BanglaSangamMN"
+        towerLabel.fontColor = SKColor.white
         towerLabel.verticalAlignmentMode = .bottom
         towerLabel.horizontalAlignmentMode = .left
-        towerLabel.position = CGPoint(x: self.frame.minX + 200, y: self.frame.minY + 50)
+        towerLabel.position = CGPoint(x: self.frame.minX + 400, y: self.frame.minY + 50)
         towerLabel.zPosition = 100
         addChild(towerLabel)
     }
