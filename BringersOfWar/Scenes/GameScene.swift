@@ -190,7 +190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let node = self.nodes(at: touchPosition).first {
             if(node.name == towerButton.name) {
                 towerManager.toggleActivation()
-                
+
                 towerButton.fillColor = towerManager.mode == .TOWER_PLACEMENT ? SKColor.green : SKColor.gray
                 return
             }
@@ -202,14 +202,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
-    override func update(_ currentTime: TimeInterval) {
-    }
-    
-    
-    // Mark: - Collision -
     func didBegin(_ contact: SKPhysicsContact) {
         if let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node {
-            print("\(nodeA.name ?? nil) collided with \(nodeB.name)")
+            print("\(nodeA.name ?? "No Name") collided with \(nodeB.name ?? "No Name")")
             
             // Check if nodeA is a Native
             if nodeA.name == Names.NATIVE_NAME {

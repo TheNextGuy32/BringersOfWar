@@ -68,6 +68,11 @@ class Tower : SKSpriteNode{
         // Face target
         let vectorTo = vectorToFrom(target, self.position)
         self.zRotation = atan2(vectorTo.dy, vectorTo.dx) - HALF_PI
+       
+        let laserSound = random(min: 0, max:3)
+        GSAudio.sharedInstance.playSound(soundFileName: "machineLaser\(laserSound).wav", volume: 1.0)
+     
+        
     }
     
     func isPointInRange(_ point: CGPoint) -> Bool {

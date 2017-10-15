@@ -64,6 +64,10 @@ class TowerManager {
     
     public func toggleActivation() {
         mode = mode == .TOWER_PLACEMENT ? .TOWER_FIRING : .TOWER_PLACEMENT
+        
+        mode == .TOWER_PLACEMENT ?
+            GSAudio.sharedInstance.playSound(soundFileName: "on.wav",volume:1.0):
+            GSAudio.sharedInstance.playSound(soundFileName: "off.wav",volume:1.0)
     }
     
     func deactivate() {
