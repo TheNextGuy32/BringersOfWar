@@ -66,10 +66,17 @@ class GameViewController: UIViewController {
         skView.presentScene(scene, transition:reveal)
     }
     
-    func loadGameScene(levelNum: Int, totalScore: Int) {
-        gameScene = GameScene(size: screenSize, scaleMode: scaleMode, levelNum: levelNum, totalScore: totalScore, sceneManager: self)
+    func loadGameScene() {
+        gameScene = GameScene(size: screenSize, scaleMode: scaleMode, sceneManager: self)
         
         let reveal = SKTransition.doorsOpenHorizontal(withDuration: 1)
         skView.presentScene(gameScene!, transition: reveal)
+    }
+    
+    func loadGameOverScene(score: Int) {
+        let gameOverScene = GameOverScene(size: screenSize, scaleMode: scaleMode, score: score, sceneManager: self)
+        
+        let reveal = SKTransition.doorsOpenHorizontal(withDuration: 1)
+        skView.presentScene(gameOverScene, transition: reveal)
     }
 }

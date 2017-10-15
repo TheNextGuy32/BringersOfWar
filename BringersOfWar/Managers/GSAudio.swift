@@ -58,7 +58,12 @@ class GSAudio: NSObject, AVAudioPlayerDelegate {
             }
         }
     }
-    
+    func stopSounds() {
+        for key in players.keys {
+            players[key]?.pause()
+            players[key] = nil
+        }
+    }
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         duplicatePlayers.remove(at:duplicatePlayers.index(of:player)!)
         //Remove the duplicate player once it is done

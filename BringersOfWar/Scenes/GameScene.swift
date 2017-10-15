@@ -11,9 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var levelNum:Int
-    var levelScore:Int = 0
-    var totalScore:Int
+    var score:Int = 0
     
     let sceneManager:GameViewController
     
@@ -46,10 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var livesLabel = SKLabelNode()
     var towerLabel = SKLabelNode()
     
-    init(size: CGSize, scaleMode: SKSceneScaleMode, levelNum:Int, totalScore:Int, sceneManager:GameViewController) {
+    init(size: CGSize, scaleMode: SKSceneScaleMode, sceneManager:GameViewController) {
         
-        self.levelNum = levelNum
-        self.totalScore = totalScore
         self.sceneManager = sceneManager
         
         self.lives = 3
@@ -148,23 +144,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lives = lives - 1
         
         if(lives <= 0) {
+            GSAudio.sharedInstance.stopSounds()
             GSAudio.sharedInstance.playSound(soundFileName: "loser.wav",volume:1.0)
-            restartLevel()
-            
+            sceneManager.loadGameOverScene(score: score)
         }
-    }
-    
-    // Restart level
-    func restartLevel() {
-        run(SKAction.sequence([
-            SKAction.run() {
-                if let scene = SKScene(fileNamed: "GameScene") {
-                    let reveal = SKTransition.flipHorizontal(withDuration: 2)
-                    scene.scaleMode = .fill
-                    self.view?.presentScene(scene, transition:reveal)
-                }
-            }
-            ]))
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -25,7 +25,7 @@ class MenuScene: SKScene {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         GSAudio.sharedInstance.playSound(soundFileName: "menu.wav", volume:1.0)
-        sceneManager.loadGameScene(levelNum: 1, totalScore: 0)
+        sceneManager.loadGameScene()
     }
     
     override func didMove(to view: SKView) {
