@@ -37,6 +37,7 @@ struct Names {
     static let TOWER_NAME               = "Tower"
     static let TOWER_SELECTION_CIRCLE   = "Tower Selection Circle"
     static let TOWER_RANGE_CIRCLE       = "Tower Range Circle"
+    static let TOWER_COOLDOWN_CIRCLE    = "Tower Cooldown Circle"
 }
 
 // Data associated with the Martian Natives

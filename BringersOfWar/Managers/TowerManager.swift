@@ -12,25 +12,41 @@ import GameplayKit
 import Foundation
 
 class TowerManager {
-    let gameScene:GameScene!
+    let scene:SKScene!
     
     var towers:[Tower]!
     
-    var towersLeft:Int!
-    
-    var mode:Mode
+    var towersLeft:Int! {
+        didSet {
+            onTowerCountChanged?(towersLeft)
+        }
+    }
+    var onTowerCountChanged: ((_ towersLeft:Int) -> Void)?
     
     enum Mode {
         case TOWER_FIRING
         case TOWER_PLACEMENT
     }
+    var mode:Mode {
+        didSet{
+            onModeSet?(mode)
+        }
+    }
+    var onModeSet: ((_ mode:Mode) -> Void)?
     
-    init(gameScene:GameScene) {
+    
+    init(scene:SKScene) {
         towersLeft = 6
         towers = [Tower]()
         mode = .TOWER_FIRING
         
-        self.gameScene = gameScene
+        self.scene = scene
+    }
+    
+    public func updateTowers(_ currentTime: TimeInterval) {
+        for tower in towers {
+            tower.update(currentTime)
+        }
     }
     
     public func handlePlayerTouchBegan(position:CGPoint) {
@@ -47,7 +63,7 @@ class TowerManager {
     public func handlePlayerTouchEnd(position:CGPoint) {
         switch mode {
         case .TOWER_PLACEMENT:
-            let nodes = gameScene.nodes(at: position)
+            let nodes = scene.nodes(at: position)
             for node in nodes {
                 if (node.name == Names.TOWER_SELECTION_CIRCLE) {
                     removeTower(tower: node.parent as! Tower)
@@ -82,13 +98,13 @@ class TowerManager {
             return
         }
         
-        let tower = Tower(gameScene: self.gameScene)
+        let tower = Tower()
         
         towers.append(tower)
         
         // Place tower at position
         tower.position = position
-        gameScene.addChild(tower)
+        scene.addChild(tower)
         
         towersLeft = towersLeft - 1
     }
