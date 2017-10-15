@@ -31,6 +31,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //
+    
     // UI mode
     var isPlacingTower:Bool = false;
     var towerButton:SKShapeNode!
@@ -86,6 +88,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         colonyNode.physicsBody?.collisionBitMask = PhysicsCategory.NATIVE
         colonyNode.physicsBody?.contactTestBitMask = PhysicsCategory.NATIVE
         addChild(colonyNode)
+        
+        GSAudio.sharedInstance.playSound(soundFileName: "mars.wav",volume:0.2)
     }
     
     // Finds the game objects in the GameScene.sks
@@ -144,7 +148,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lives = lives - 1
         
         if(lives <= 0) {
+            GSAudio.sharedInstance.playSound(soundFileName: "loser.wav",volume:1.0)
             restartLevel()
+            
         }
     }
     
@@ -175,7 +181,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if(name == towerButton.name) {
                 isPlacingTower = !isPlacingTower
-                
+                if isPlacingTower {
+                    GSAudio.sharedInstance.playSound(soundFileName: "on.wav",volume:1.0)
+                } else {
+                    GSAudio.sharedInstance.playSound(soundFileName: "off.wav",volume:1.0)
+                }
                 towerButton.fillColor = isPlacingTower ? SKColor.green : SKColor.gray
                 return
             }
@@ -189,6 +199,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             tower.position = touchPosition
             addChild(tower)
             towers.append(tower)
+            
+            GSAudio.sharedInstance.playSound(soundFileName: "towerPlace0.wav",volume:0.1)
             
             towersLeft = towersLeft - 1
             
@@ -214,7 +226,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         print("\(nodeA!.name!) collided with \(nodeB!.name!)")
         
-        
         // Check if nodeA is a Native
         if nodeA!.name == Names.NATIVE_NAME {
             handleNativeCollision(nativeNode: nodeA!, otherNode: nodeB!)
@@ -230,6 +241,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch(otherNode.name!) {
         case Names.BULLET_NAME:
             // Bullet Collision. Remove both.
+            let deathSound = random(min: 0, max:1)
+            GSAudio.sharedInstance.playSound(soundFileName: "splish\(deathSound).wav",volume:0.2)
             nativeNode.removeFromParent()
             otherNode.removeFromParent()
             break
@@ -237,6 +250,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // Collision with base. Remove native. damage base
             nativeNode.removeFromParent()
             self.damageColony()
+            GSAudio.sharedInstance.playSound(soundFileName: "base.wav",volume:0.9)
             break;
         default:
             print("Unhandled Collision")

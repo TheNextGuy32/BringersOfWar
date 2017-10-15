@@ -58,6 +58,10 @@ class Tower : SKSpriteNode{
             let bullet = Bullet(tower:self)
             bullet.position = self.position;
             gameScene.addChild(bullet)
+            
+            let laserSound = random(min: 0, max:3)
+            GSAudio.sharedInstance.playSound(soundFileName: "machineLaser\(laserSound).wav", volume: 1.0)
+            
             bullet.moveTowardsTarget(target: target)
         }
     }
