@@ -37,7 +37,7 @@ class GameOverScene: SKScene {
         addChild(label0)
         
         let label1 = SKLabelNode(fontNamed: GameData.font.mainFont)
-        label1.text = "You got \(score) total diamonds!"
+        label1.text = "You got \(score) points!"
         label1.fontSize = 70
         label1.position = CGPoint(x:size.width/2, y:size.height/2 - 100)
         addChild(label1)

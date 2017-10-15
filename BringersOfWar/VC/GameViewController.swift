@@ -39,7 +39,7 @@ class GameViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+        return .portrait
     }
 
     override func didReceiveMemoryWarning() {
